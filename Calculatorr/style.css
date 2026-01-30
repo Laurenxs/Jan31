@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 40px;
+  background: #e0b9c9;
+  overflow-y: auto;
+}
+
+/* Page control */
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+/* Inputs & Buttons */
+input, button {
+  padding: 12px;
+  font-size: 18px;
+  margin-top: 15px;
+  border-radius: 6px;
+  border: none;
+}
+
+button {
+  cursor: pointer;
+  background: #ff69b4;
+  color: white;
+}
+
+/* Error message */
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+/* 🎂 Cake Page Background */
+#cakePage {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #ffd1dc, #ffe6f0, #fff0f5);
+  animation: bgMove 8s ease infinite;
+}
+
+
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 🎂 Cake */
+.cake {
+  width: 150px;
+  height: 110px;
+  background: pink;
+  border-radius: 0 0 20px 20px;
+  margin: 100px auto;
+  position: relative;
+  animation: bounce 3s infinite;
+  box-shadow: 0 0 25px rgba(255,105,180,0.7);
+  position: relative;
+  transform-origin: center;
+  
+}
+
+.cake::before {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 40px;
+  background: #ff69b4;
+  border-radius: 20px 20px 0 0;
+}
+
+
+/* Cake bounce */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-30px); }
+}
+
+/* 🕯️ Candle */
+.candle {
+  width: 10px;
+  height: 30px;
+  background: white;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.candle::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: orange;
+  border-radius: 50%;
+  position: absolute;
+  top: -12px;
+  left: -2px;
+  animation: flicker 0.2s infinite alternate;
+}
+
+@keyframes flicker {
+  from { transform: scale(1); opacity: 0.8; }
+  to { transform: scale(1.3); opacity: 1; }
+}
+
+/* 💖 Hearts */
+.heart {
+  position: absolute;
+  bottom: -20px;
+  font-size: 20px;
+  animation: floatUp linear forwards;
+  opacity: 0.8;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
+
+.hint {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* 📱 Mobile */
+@media (max-width: 600px) {
+  body {
+    padding: 20px;
+  }
+
+  h1, h2 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  input, button {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .cake {
+    width: 130px;
+    height: 100px;
+  }
+}
